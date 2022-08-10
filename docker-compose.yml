@@ -1,24 +1,24 @@
 version: '3.8'
 
 services:
-        CICD_web:
+        cicd_web:
                 build: ./web
-                container_name: CICD_web
+                container_name: cicd_web
                 restart: always
                 command: ["/bin/bash","-c","uwsgi --ini uwsgi.ini"]
                 volumes:
                         - web_data:/web/testCICD
                 environment:
                         - PYTHONUNBUFFERED=TURE
-        CICD_nginx:
+        cicd_nginx:
                 build: ./nginx
-                container_name: CICD_nginx
+                container_name: cicd_nginx
                 restart: always
                 volumes:
                         - web_data:/web/testCICD
                 ports:
                         - "8000:80"
                 depends_on:
-                        - CICD_web
+                        - cicd_web
 volumes:
         web_data:
