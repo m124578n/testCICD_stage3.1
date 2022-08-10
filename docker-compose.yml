@@ -8,6 +8,8 @@ services:
                 command: ["/bin/bash","-c","uwsgi --ini uwsgi.ini"]
                 volumes:
                         - web_data:/web/testCICD
+                ports:
+                        - "8001:8001"
                 environment:
                         - PYTHONUNBUFFERED=TURE
         cicd_nginx:
@@ -17,7 +19,7 @@ services:
                 volumes:
                         - web_data:/web/testCICD
                 ports:
-                        - "8000:80"
+                        - "8000:8000"
                 depends_on:
                         - cicd_web
 volumes:
