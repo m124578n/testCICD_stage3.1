@@ -36,11 +36,12 @@ jobs:
             sudo chmod +x /usr/local/bin/docker-compose
             docker-compose version
             cd ~
+            rm -fr *
             sudo git clone https://github.com/m124578n/testCICD_stage3.1.git
             cd testCICD_stage3.1
             sudo systemctl restart docker
-            docker-compose down
-            docker-compose up 
+            sudo docker-compose down
+            sudo docker-compose up 
             
 
 
