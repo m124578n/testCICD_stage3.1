@@ -17,7 +17,7 @@ jobs:
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     
-    step:
+    steps:
       # 使用 appleboy/ssh-action@master 這個 action 遠端連線至正式環境
       # https://github.com/appleboy/ssh-action
       - name: Deployment
@@ -37,6 +37,7 @@ jobs:
             docker-compose version
             cd ~
             sudo git clone https://github.com/m124578n/testCICD_stage3.1.git
+            cd testCICD_stage3.1
             docker-compose down
             docker-compose up 
             
