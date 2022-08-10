@@ -36,6 +36,7 @@ jobs:
             docker-compose version
             cd ~
             sudo git clone https://github.com/m124578n/testCICD_stage3.1.git
+            docker-compose down
             docker-compose up 
             
 
