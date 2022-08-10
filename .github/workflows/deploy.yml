@@ -33,15 +33,16 @@ jobs:
             sudo yum -y install docker
             sudo yum -y install git 
             sudo curl -L https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
-            sudo chmod +x /usr/local/bin/docker-compose
+            sudo chmod 777 /usr/local/bin/docker-compose
             docker-compose version
             cd ~
             sudo rm -fr *
             sudo git clone https://github.com/m124578n/testCICD_stage3.1.git
             cd testCICD_stage3.1
             sudo systemctl restart docker
-            sudo docker-compose down
-            sudo docker-compose up 
+            sudo chmod 777 /var/run/docker.sock
+            docker-compose down
+            docker-compose up 
             
 
 
