@@ -13,6 +13,6 @@ VOLUME /web
 
 EXPOSE 8001
 
-
-# CMD python manage.py runserver 0.0.0.0:8010
+ENTRYPOINT [ "/bin/bash", "docker-entrypoint.sh" ]
+CMD python manage.py runserver 0.0.0.0:8000
 
