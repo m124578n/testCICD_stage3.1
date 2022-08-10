@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+        pdf_web:
+                build: ./web
+                container_name: pdf_web
+                restart: always
+                command: ["/bin/bash","-c","uwsgi --ini uwsgi.ini"]
+                volumes:
+                        - web_data:/web/pdfreader
+                ports:
+                        - "8001:8001"
+                environment:
+                        - PYTHONUNBUFFERED=TURE
+        pdf_nginx:
+                build: ./nginx
+                container_name: pdf_nginx
+                restart: always
+                volumes:
+                        - web_data:/web/pdfreader
+                ports:
+                        - "8000:8000"
+                depends_on:
+                        - pdf_web
+volumes:
+        web_data:
