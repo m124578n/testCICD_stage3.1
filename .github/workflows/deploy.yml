@@ -16,7 +16,8 @@ jobs:
     # 因此這裡加上一個 if 判斷，只有 CI 成功才會執行此 workflow
     # https://docs.github.com/en/actions/using-workflows/events-that-trigger-workflows#workflow_run
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-          
+    
+    step:
       # 使用 appleboy/ssh-action@master 這個 action 遠端連線至正式環境
       # https://github.com/appleboy/ssh-action
       - name: Deployment
