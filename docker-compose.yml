@@ -9,7 +9,7 @@ services:
                 volumes:
                         - web_data:/web/testCICD
                 ports:
-                        - "54.95.146.15:8001:8001"
+                        - "8001:8001"
                 environment:
                         - PYTHONUNBUFFERED=TURE
         cicd_nginx:
@@ -19,7 +19,7 @@ services:
                 volumes:
                         - web_data:/web/testCICD
                 ports:
-                        - "54.95.146.15:8000:8000"
+                        - "8000:8000"
                 depends_on:
                         - cicd_web
 volumes:
