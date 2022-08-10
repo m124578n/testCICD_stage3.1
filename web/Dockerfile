@@ -7,7 +7,7 @@ COPY . /web/
 RUN pip install --upgrade pip 
 RUN pip install -r requirements.txt
 
-WORKDIR /web/pdfreader
+WORKDIR /web/testCICD
 
 VOLUME /web
 
